@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Characters — RBLX CURFEW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #e8517a;
+      --dark-pink: #b03058;
+      --soft-pink: #f7c5d5;
+      --cream: #fdf0f4;
+      --dark: #1a0a10;
+      --mid: #3d1a26;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    .page-wrapper {
+      animation: fadeInPage 0.9s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      background: rgba(253,240,244,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--soft-pink);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      color: var(--dark-pink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--mid);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--pink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--pink); }
+    .nav-links a.active::after { width: 100%; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 140px 60px 60px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--soft-pink) 0%, var(--cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: 'CHARACTERS';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10rem;
+      color: rgba(232,81,122,0.06);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 6px;
+      color: var(--dark);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header h1 span { color: var(--pink); }
+
+    .page-header p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--dark-pink);
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CHAR GRID */
+    .chars-section {
+      padding: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .chars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    /* CHAR CARD */
+    .char-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      border: 2px solid var(--soft-pink);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--dark);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer;
+      animation: cardIn 0.6s ease both;
+    }
+
+    .char-card:nth-child(1) { animation-delay: 0.05s; }
+    .char-card:nth-child(2) { animation-delay: 0.1s; }
+    .char-card:nth-child(3) { animation-delay: 0.15s; }
+    .char-card:nth-child(4) { animation-delay: 0.2s; }
+    .char-card:nth-child(5) { animation-delay: 0.25s; }
+    .char-card:nth-child(6) { animation-delay: 0.3s; }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .char-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(232,81,122,0.18);
+      border-color: var(--pink);
+    }
+
+    .char-icon {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--soft-pink), #e8a0b8);
+      border: 3px solid var(--pink);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .char-icon img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .char-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .char-info .char-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+
+    .char-info p {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #7a4050;
+    }
+
+    .char-arrow {
+      margin-left: auto;
+      font-size: 1.2rem;
+      color: var(--pink);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .char-card:hover .char-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* EMPTY STATE */
+    .add-hint {
+      text-align: center;
+      padding: 60px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--dark-pink);
+      border: 2px dashed var(--soft-pink);
+      border-radius: 10px;
+      line-height: 2;
+    }
+
+    footer {
+      background: var(--mid);
+      color: var(--soft-pink);
+      text-align: center;
+      padding: 30px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <nav>
+      <a href="index.html" class="nav-logo">RBLX CURFEW</a>
+      <ul class="nav-links">
+        <li><a href="characters.html" class="active">Characters</a></li>
+        <li><a href="credits.html">Credits</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-header">
+      <h1>CHARACTER <span>LIBRARY</span></h1>
+      <p>// click a character to view their full profile</p>
+    </div>
+
+    <section class="chars-section">
+      <div class="chars-grid">
+
+        <!--
+          HOW TO ADD A CHARACTER:
+          1. Copy one .char-card block below
+          2. Change the name, role, description, emoji (or replace with <img>)
+          3. Change the href to match the character's page file
+          4. Create that file (e.g. char-sakura.html) using char-template.html
+        -->
+
+        <a href="char-example.html" class="char-card">
+          <div class="char-icon">🌸</div>
+          <div class="char-info">
+            <h3>SAKURA</h3>
+            <div class="char-role">Support — Free</div>
+            <p>A gentle healer who wanders the midnight streets looking for survivors.</p>
+          </div>
+          <span class="char-arrow">→</span>
+        </a>
+
+        <a href="#" class="char-card">
+          <div class="char-icon">🌙</div>
+          <div class="char-info">
+            <h3>NOCTURNE</h3>
+            <div class="char-role">Stealth — 500R$</div>
+            <p>Moves like a shadow. No one hears him coming, and no one sees him leave.</p>
+          </div>
+          <span class="char-arrow">→</span>
+        </a>
+
+        <a href="#" class="char-card">
+          <div class="char-icon">⚡</div>
+          <div class="char-info">
+            <h3>VOLT</h3>
+            <div class="char-role">Attacker — 250R$</div>
+            <p>Fast, aggressive, and impossible to catch. Built for chaos.</p>
+          </div>
+          <span class="char-arrow">→</span>
+        </a>
+
+        <!-- ADD MORE CHARACTERS HERE -->
+
+        <div class="add-hint">
+          + Add more characters by duplicating<br>
+          one of the .char-card blocks above!<br><br>
+          Replace the emoji with an &lt;img&gt; tag<br>
+          for real character art.
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © RBLX CURFEW — ALL RIGHTS RESERVED
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credits — RBLX CURFEW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #e8517a;
+      --dark-pink: #b03058;
+      --soft-pink: #f7c5d5;
+      --cream: #fdf0f4;
+      --dark: #1a0a10;
+      --mid: #3d1a26;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      color: var(--cream);
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      animation: fadeInPage 0.9s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      background: rgba(26,10,16,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--mid);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--soft-pink);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--pink); }
+    .nav-links a.active { color: var(--pink); }
+
+    .page-header {
+      padding: 140px 60px 60px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 6px;
+      color: var(--cream);
+    }
+
+    .page-header h1 span { color: var(--pink); }
+
+    .page-header p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #c8a0b0;
+      margin-top: 12px;
+    }
+
+    /* CREDITS CONTENT */
+    .credits-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 60px 80px;
+    }
+
+    .credit-group {
+      margin-bottom: 50px;
+      animation: cardIn 0.6s ease both;
+    }
+
+    .credit-group:nth-child(1) { animation-delay: 0.05s; }
+    .credit-group:nth-child(2) { animation-delay: 0.1s; }
+    .credit-group:nth-child(3) { animation-delay: 0.15s; }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .credit-group h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      color: var(--pink);
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--mid);
+      padding-bottom: 10px;
+    }
+
+    .credit-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .credit-avatar {
+      width: 50px; height: 50px;
+      background: var(--mid);
+      border-radius: 50%;
+      border: 2px solid var(--dark-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .credit-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .credit-text strong {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--cream);
+      display: block;
+    }
+
+    .credit-text span {
+      font-size: 0.8rem;
+      color: #c8a0b0;
+    }
+
+    /* THANK YOU */
+    .thankyou {
+      text-align: center;
+      padding: 60px 0 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      color: var(--soft-pink);
+      opacity: 0.5;
+    }
+
+    footer {
+      background: var(--mid);
+      color: var(--soft-pink);
+      text-align: center;
+      padding: 30px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <nav>
+      <a href="index.html" class="nav-logo">RBLX CURFEW</a>
+      <ul class="nav-links">
+        <li><a href="characters.html">Characters</a></li>
+        <li><a href="credits.html" class="active">Credits</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-header">
+      <h1>THE <span>CREDITS</span></h1>
+      <p>// the people who made this possible</p>
+    </div>
+
+    <section class="credits-section">
+
+      <div class="credit-group">
+        <h2>🎮 Development</h2>
+        <div class="credit-row">
+          <div class="credit-avatar">👤</div>
+          <div class="credit-text">
+            <strong>YourUsername</strong>
+            <span>Game Developer, Lead Designer</span>
+          </div>
+        </div>
+        <!-- Add more rows for more devs! -->
+      </div>
+
+      <div class="credit-group">
+        <h2>🎨 Art & Design</h2>
+        <div class="credit-row">
+          <div class="credit-avatar">🎨</div>
+          <div class="credit-text">
+            <strong>ArtistUsername</strong>
+            <span>Character Art, UI Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="credit-group">
+        <h2>🎵 Music & Sound</h2>
+        <div class="credit-row">
+          <div class="credit-avatar">🎵</div>
+          <div class="credit-text">
+            <strong>MusicUsername</strong>
+            <span>Soundtrack, SFX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="credit-group">
+        <h2>💙 Special Thanks</h2>
+        <div class="credit-row">
+          <div class="credit-avatar">⭐</div>
+          <div class="credit-text">
+            <strong>Everyone who played!</strong>
+            <span>Thank you for the support 💕</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="thankyou">THANK YOU ♡</div>
+
+    </section>
+
+    <footer>
+      © RBLX CURFEW — ALL RIGHTS RESERVED
+    </footer>
+  </div>
+</body>
+</html>
